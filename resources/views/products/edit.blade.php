@@ -31,7 +31,7 @@
           <label for="description">Deskripsi:</label>
           <input type="text" class="form-control" name="description" value="{{$product->description}}" required/>
           <label for="product_rate">Rate:</label>
-          <input type="number" min="0" class="form-control" name="product_rate" value="{{$product->product_rate}}" required/>
+          <input type="text" class="form-control" name="product_rate" value="{{$product->product_rate}}" required/>
           <label for="stock">Stok:</label>
           <input type="number" min="0" class="form-control" name="stock" value="{{$product->stock}}" required/>
           <label for="weight">Berat:</label>

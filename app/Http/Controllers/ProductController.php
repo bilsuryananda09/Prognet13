@@ -44,7 +44,7 @@ class ProductController extends Controller
             'product_name'=>'required',
             'price'=>'required',
             'description'=>'required',
-            'product_rate'=>'required',
+            'product_rate'=>'required|numeric|between:0,5.0',
             'stock'=>'required',
             'weight'=>'required'
         ]);
@@ -99,7 +99,7 @@ class ProductController extends Controller
             'product_name'=>'required',
             'price'=>'required',
             'description'=>'required',
-            'product_rate'=>'required',
+            'product_rate'=>'required|numeric|between:0,5.0',
             'stock'=>'required',
             'weight'=>'required'
         ]);
