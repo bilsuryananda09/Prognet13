@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\ProductCategories;
 
 class ProductCategoryController extends Controller
 {
@@ -14,6 +15,9 @@ class ProductCategoryController extends Controller
     public function index()
     {
         //
+        $productcategories = ProductCategories::all();
+
+        return view('product_categories.index', compact('productcategories'));
     }
 
     /**
@@ -24,6 +28,7 @@ class ProductCategoryController extends Controller
     public function create()
     {
         //
+        return view('product_categories.create');
     }
 
     /**
@@ -35,6 +40,14 @@ class ProductCategoryController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'category_name'=>'required'
+        ]);
+        $productcategory = new ProductCategories([
+            'category_name' => $request->get('category_name')
+        ]);
+        $productcategory->save();
+        return redirect('/productcategories')->with('success', 'Product category has been added');
     }
 
     /**
@@ -57,6 +70,9 @@ class ProductCategoryController extends Controller
     public function edit($id)
     {
         //
+        $productcategory = ProductCategories::find($id);
+
+        return view('product_categories.edit', compact('productcategory'));
     }
 
     /**
@@ -69,6 +85,15 @@ class ProductCategoryController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $request->validate([
+            'category_name'=>'required'
+        ]);
+
+        $productcategory = ProductCategories::find($id);
+        $productcategory->category_name = $request->get('category_name');
+        $productcategory->save();
+
+        return redirect('/productcategories')->with('success', 'Product category has been updated');
     }
 
     /**
@@ -80,5 +105,9 @@ class ProductCategoryController extends Controller
     public function destroy($id)
     {
         //
+        $productcategory = ProductCategories::find($id);
+        $productcategory->delete();
+
+        return redirect('/productcategories')->with('success', 'Product category has been deleted successfully');
     }
 }

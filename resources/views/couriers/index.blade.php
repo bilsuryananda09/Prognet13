@@ -1,5 +1,5 @@
 @extends('layout')
-
+@section('title', 'List Kurir')
 @section('content')
 <style>
   .uper {
@@ -12,6 +12,9 @@
       {{ session()->get('success') }}  
     </div><br />
   @endif
+  <div class="tile-footer">
+    <a class="btn btn-secondary" href="{{route('couriers.create')}}">Tambah</a>
+  </div>
   <table class="table table-striped">
     <thead>
         <tr>

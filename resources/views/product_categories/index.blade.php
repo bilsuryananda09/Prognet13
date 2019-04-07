@@ -1,5 +1,5 @@
 @extends('layout')
-
+@section('title', 'List Kategori Produk')
 @section('content')
 <style>
   .uper {
@@ -12,22 +12,25 @@
       {{ session()->get('success') }}  
     </div><br />
   @endif
+  <div class="tile-footer">
+    <a class="btn btn-secondary" href="{{route('productcategories.create')}}">Tambah</a>
+  </div>
   <table class="table table-striped">
     <thead>
         <tr>
           <td>No</td>
-          <td>Nama Topic</td>
+          <td>Nama Kategori</td>
           <td colspan="2">Action</td>
         </tr>
     </thead>
     <tbody>
-        @foreach($topics as $topic)
+        @foreach($productcategories as $productcategory)
         <tr>
             <td>{{$loop->iteration}}</td>
-            <td>{{$topic->nama_topic}}</td>
-            <td><a href="{{ route('topics.edit',$topic->id)}}" class="btn btn-primary">Edit</a></td>
+            <td>{{$productcategory->category_name}}</td>
+            <td><a href="{{ route('productcategories.edit',$productcategory->id)}}" class="btn btn-primary">Edit</a></td>
             <td>
-                <form action="{{ route('topics.destroy', $topic->id)}}" method="post">
+                <form action="{{ route('productcategories.destroy', $productcategory->id)}}" method="post">
                   @csrf
                   @method('DELETE')
                   <button class="btn btn-danger" type="submit">Delete</button>

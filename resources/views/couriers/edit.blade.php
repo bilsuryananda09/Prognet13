@@ -1,5 +1,5 @@
 @extends('layout')
-
+@section('title', 'Edit Kurir')
 @section('content')
 <style>
   .uper {
@@ -24,10 +24,11 @@
         @method('PATCH')
         @csrf
         <div class="form-group">
-          <label for="name">Nama Kurir:</label>
-          <input type="text" class="form-control" name="courier" value={{ $courier->courier }} />
+          <label for="courier">Nama Kurir:</label>
+          <input type="text" class="form-control" name="courier" value="{{$courier->courier}}" required/>
         </div>
         <button type="submit" class="btn btn-primary">Update</button>
+        <a class="btn btn-secondary" href="{{route('couriers.index')}}">Batal</a>
       </form>
   </div>
 </div>

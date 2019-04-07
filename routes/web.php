@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('topics', 'TopicController');
-
 Route::resource('couriers', 'CourierController');
+
+Route::resource('productcategories', 'ProductCategoryController');
+
+Route::resource('products', 'ProductController');

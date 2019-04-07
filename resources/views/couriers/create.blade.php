@@ -1,5 +1,5 @@
 @extends('layout')
-
+@section('title', 'Tambah Kurir')
 @section('content')
 <style>
   .uper {
@@ -23,10 +23,11 @@
       <form method="post" action="{{ route('couriers.store') }}">
           <div class="form-group">
               @csrf
-              <label for="name">Nama Kurir:</label>
-              <input type="text" class="form-control" name="courier"/>
+              <label for="courier">Nama Kurir:</label>
+              <input type="text" class="form-control" name="courier" required/>
           </div>
           <button type="submit" class="btn btn-primary">Tambah</button>
+          <a class="btn btn-secondary" href="{{route('couriers.index')}}">Batal</a>
       </form>
   </div>
 </div>
