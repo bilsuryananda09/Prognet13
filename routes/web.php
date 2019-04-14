@@ -20,7 +20,7 @@ Route::post('/login/admin', 'Auth\LoginController@adminLogin');
 Route::post('/register/admin', 'Auth\RegisterController@createAdmin');
 
 Route::view('/home', 'home')->middleware('auth');
-Route::view('/admin', 'admin');
+Route::view('/admin', 'admin.dashboard');
 
 Route::resource('couriers', 'CourierController');
 

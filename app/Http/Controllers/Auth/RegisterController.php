@@ -53,8 +53,11 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
+            'profile_iamge' => ['required'],
+            'phone' => ['required'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'username' => ['required', 'string', 'max:255'],
+            'password' => ['required', 'string', 'min:4', 'confirmed'],
         ]);
     }
 
@@ -75,7 +78,7 @@ class RegisterController extends Controller
 
     public function showAdminRegisterForm()
     {
-        return view('auth.register', ['url' => 'admin']);
+        return view('auth.adminregister', ['url' => 'admin']);
     }
 
     protected function createAdmin(Request $request)
@@ -87,8 +90,8 @@ class RegisterController extends Controller
             'phone' => $request['phone'],
             'username' => $request['username'],
             'password' => Hash::make($request['password']),
-
         ]);
+
         return redirect()->intended('login/admin');
     }
 }
