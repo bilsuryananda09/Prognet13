@@ -10,35 +10,52 @@
             <div class="text-wrapper">
               <p class="profile-name">Richard V.Welsh</p>
               <div>
-                <small class="designation text-muted">Manager</small>
+                <small class="designation text-muted">Admin</small>
                 <span class="status-indicator online"></span>
               </div>
             </div>
           </div>
-          <button class="btn btn-success btn-block">New Project
-            <i class="mdi mdi-plus"></i>
-          </button>
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="index.html">
-          <i class="menu-icon mdi mdi-television"></i>
+        <a class="nav-link" href="/admin">
+          <i class="menu-icon fa fa-desktop"></i>
           <span class="menu-title">Dashboard</span>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-          <i class="menu-icon mdi mdi-content-copy"></i>
-          <span class="menu-title">Basic UI Elements</span>
+        <a class="nav-link" data-toggle="collapse" href="#products" aria-expanded="false" aria-controls="products">
+          <i class="menu-icon fa fa-briefcase"></i>
+          <span class="menu-title">Products</span>
           <i class="menu-arrow"></i>
         </a>
-        <div class="collapse" id="ui-basic">
+        <div class="collapse" id="products">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item">
-              <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a>
+              <a class="nav-link" href="pages/ui-features/buttons.html">View Products</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="pages/ui-features/typography.html">Typography</a>
+              <a class="nav-link" href="pages/ui-features/typography.html">Product Categories</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="pages/ui-features/typography.html">Product Images</a>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="collapse" href="#courier" aria-expanded="false" aria-controls="courier">
+          <i class="menu-icon fa fa-car"></i>
+          <span class="menu-title">Courier</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="courier">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item">
+              <a class="nav-link" href="pages/ui-features/buttons.html">View Courier</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="pages/ui-features/typography.html">Create Courier</a>
             </li>
           </ul>
         </div>

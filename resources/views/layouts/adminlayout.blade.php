@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="StarAdmin/vendors/css/vendor.bundle.addons.css">
   <!-- endinject -->
   <!-- plugin css for this page -->
+  <link rel="stylesheet" href="StarAdmin/vendors/iconfonts/font-awesome/css/font-awesome.css">
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="StarAdmin/css/style.css">
