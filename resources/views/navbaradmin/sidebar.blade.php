@@ -32,10 +32,10 @@
         <div class="collapse" id="products">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item">
-              <a class="nav-link" href="pages/ui-features/buttons.html">View Products</a>
+              <a class="nav-link" href="products">View Products</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="pages/ui-features/typography.html">Product Categories</a>
+              <a class="nav-link" href="productcategories">Product Categories</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="pages/ui-features/typography.html">Product Images</a>
@@ -52,10 +52,10 @@
         <div class="collapse" id="courier">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item">
-              <a class="nav-link" href="pages/ui-features/buttons.html">View Courier</a>
+              <a class="nav-link" href="couriers">View Courier</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="pages/ui-features/typography.html">Create Courier</a>
+              <a class="nav-link" href="couriers/create">Create Courier</a>
             </li>
           </ul>
         </div>

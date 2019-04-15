@@ -1,5 +1,8 @@
-@extends('layout')
-@section('title', 'List Kategori Produk')
+@extends('layouts.adminlayout')
+
+@section('title')
+    List Kategori Produk
+@endsection
 @section('content')
 <style>
   .uper {

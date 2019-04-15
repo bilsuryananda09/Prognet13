@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', 'Tambah Produk')
+@section('title', 'Tambah Kategori Produk')
 @section('content')
 <style>
   .uper {
