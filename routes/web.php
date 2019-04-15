@@ -24,3 +24,9 @@ Route::post('/login/admin', 'Auth\LoginController@adminLogin');
 
 Route::view('/home', 'home')->middleware('auth');
 Route::view('/admin', 'admin.dashboard');
+
+Route::resource('couriers', 'CourierController');
+
+Route::resource('products', 'ProductController');
+
+Route::resource('productcategories', 'ProductCategoryController');
