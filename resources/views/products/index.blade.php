@@ -3,10 +3,6 @@
 @section('title')
     List Produk
 @endsection
-<<<<<<< HEAD
-
-=======
->>>>>>> a321d8882c0a405dae48f5bced09437ea0dd8acb
 @section('content')
 <div class="row">
   
