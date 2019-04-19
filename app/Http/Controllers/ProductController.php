@@ -44,7 +44,6 @@ class ProductController extends Controller
             'product_name'=>'required',
             'price'=>'required',
             'description'=>'required',
-            'product_rate'=>'required|numeric|between:0,5.0',
             'stock'=>'required',
             'weight'=>'required'
         ]);
@@ -52,7 +51,7 @@ class ProductController extends Controller
             'product_name' => $request->get('product_name'),
             'price' => $request->get('price'),
             'description' => $request->get('description'),
-            'product_rate' => $request->get('product_rate'),
+            'product_rate' => 0,
             'stock' => $request->get('stock'),
             'weight' => $request->get('weight')
         ]);
@@ -99,7 +98,6 @@ class ProductController extends Controller
             'product_name'=>'required',
             'price'=>'required',
             'description'=>'required',
-            'product_rate'=>'required|numeric|between:0,5.0',
             'stock'=>'required',
             'weight'=>'required'
         ]);
@@ -108,7 +106,6 @@ class ProductController extends Controller
         $product->product_name = $request->get('product_name');
         $product->price = $request->get('price');
         $product->description = $request->get('description');
-        $product->product_rate = $request->get('product_rate');
         $product->stock = $request->get('stock');
         $product->weight = $request->get('weight');
         $product->save();

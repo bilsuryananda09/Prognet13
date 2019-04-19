@@ -8,7 +8,7 @@
               <img src="StarAdmin/images/faces/face1.jpg" alt="profile image">
             </div>
             <div class="text-wrapper">
-              <p class="profile-name">Richard V.Welsh</p>
+              <p class="profile-name">{{Auth::guard('admin')->user()->name}}</p>
               <div>
                 <small class="designation text-muted">Admin</small>
                 <span class="status-indicator online"></span>

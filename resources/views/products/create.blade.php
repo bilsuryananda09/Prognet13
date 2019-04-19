@@ -29,8 +29,6 @@
               <input type="number" min="0" class="form-control" name="price" required/>
               <label for="description">Deskripsi:</label>
               <input type="text" class="form-control" name="description" required/>
-              <label for="product_rate">Rate:</label>
-              <input type="text" class="form-control" name="product_rate" required/>
               <label for="stock">Stok:</label>
               <input type="number" min="0" class="form-control" name="stock" required/>
               <label for="weight">Berat:</label>
