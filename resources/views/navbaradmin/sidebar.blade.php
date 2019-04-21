@@ -38,6 +38,9 @@
               <a class="nav-link" href="productcategories">Product Categories</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="productcategorydetails">Product Category Details</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="pages/ui-features/typography.html">Product Images</a>
             </li>
           </ul>
