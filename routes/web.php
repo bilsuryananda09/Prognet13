@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('/user/home');
 });
 
 Auth::routes();
@@ -23,11 +23,11 @@ Route::get('/login/admin', 'Auth\LoginController@showAdminLoginForm');
 Route::post('/login/admin', 'Auth\LoginController@adminLogin');
 
 Route::view('/home', 'home')->middleware('auth');
-<<<<<<< HEAD
+//<<<<<<< HEAD
 Route::get('/admin', 'AdminController@index');
-=======
+//=======
 Route::view('/admin', 'admin.dashboard');
->>>>>>> a321d8882c0a405dae48f5bced09437ea0dd8acb
+//>>>>>>> a321d8882c0a405dae48f5bced09437ea0dd8acb
 
 Route::resource('couriers', 'CourierController');
 
