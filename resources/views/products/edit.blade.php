@@ -1,45 +1,82 @@
-@extends('layout')
-@section('title', 'Edit Produk')
-@section('content')
-<style>
-  .uper {
-    margin-top: 40px;
-  }
-</style>
-<div class="card uper">
-  <div class="card-header">
+@extends('layouts.adminlayout')
+
+@section('title')
     Edit Produk
-  </div>
-  <div class="card-body">
-    @if ($errors->any())
-      <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-              <li>{{ $error }}</li>
+@endsection
+@section('content')
+<div class="row">
+  
+  @if ($errors->any())
+  <div class="alert alert-danger">
+    <ul>
+        @foreach ($errors->all() as $error)
+          <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+  </div><br />
+  @endif
+
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Add Product</h4>
+        <form class="forms-sample" method="post" action="{{ route('products.update', $singleProduct->id) }}">
+          @method('PUT')
+          @csrf
+          <div class="form-group">
+            <label for="product_name">Product Name</label>
+            <input type="text" name="product_name" class="form-control" id="product_name" placeholder="Product Name" value="{{$singleProduct->product_name}}" required>
+          </div>
+          <div class="form-group">
+            <label for="price">Price</label>
+            <input type="number" min="0" name="price" class="form-control" id="price" placeholder="Price" value="{{$singleProduct->price}}" required>
+          </div>
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea name="description" class="form-control" id="description" rows="2">{{$singleProduct->description}}</textarea>
+          </div>
+          <div class="form-group">
+            <label for="price">Stock</label>
+            <input type="number" min="0" name="stock" class="form-control" id="stock" placeholder="Stock" value="{{$singleProduct->stock}}" required>
+          </div>
+          <div class="form-group">
+            <label for="weight">Weight</label>
+            <input type="number" min="0" name="weight" class="form-control" id="weight" placeholder="Weight" value="{{$singleProduct->weight}}" required>
+          </div>
+          <div class="form-group">
+            <label for="categories">Categories</label>
+            @foreach ($productcategories as $category)
+              @php
+                  $status = 0
+              @endphp
+              
+            <div class="form-check form-check-flat">
+                @foreach ($product as $item)
+                  @if ($category->id == $item->category_id)
+                    <label class="form-check-label">
+                      <input type="checkbox" name="categories[]" value="{{ $category->id }}" class="form-check-input" checked>
+                      {{ $category->category_name}}
+                    </label>
+
+                    @php
+                        $status = 1
+                    @endphp
+                  @endif
+                @endforeach
+
+                @if ($status == 0)
+                  <label class="form-check-label">
+                    <input type="checkbox" name="categories[]" value="{{ $category->id }}" class="form-check-input">
+                    {{ $category->category_name}}
+                  </label>
+                @endif
+            </div>
             @endforeach
-        </ul>
-      </div><br />
-    @endif
-      <form method="post" action="{{ route('products.update', $product->id) }}">
-        @method('PATCH')
-        @csrf
-        <div class="form-group">
-          <label for="product_name">Nama Produk:</label>
-          <input type="text" class="form-control" name="product_name" value="{{$product->product_name}}" required/>
-          <label for="price">Harga Produk:</label>
-          <input type="number" min="0" class="form-control" name="price" value="{{$product->price}}" required/>
-          <label for="description">Deskripsi:</label>
-          <input type="text" class="form-control" name="description" value="{{$product->description}}" required/>
-          <label for="product_rate">Rate:</label>
-          <input type="text" class="form-control" name="product_rate" value="{{$product->product_rate}}" required/>
-          <label for="stock">Stok:</label>
-          <input type="number" min="0" class="form-control" name="stock" value="{{$product->stock}}" required/>
-          <label for="weight">Berat:</label>
-          <input type="number" min="0" class="form-control" name="weight" value="{{$product->weight}}" required/>
-        </div>
-        <button type="submit" class="btn btn-primary">Update</button>
-        <a class="btn btn-secondary" href="{{route('products.index')}}">Batal</a>
-      </form>
-  </div>
-</div>
+          </div>
+          <button type="submit" class="btn btn-success mr-2">Submit</button>
+          <a class="btn btn-light" href="{{route('products.index')}}">Cancel</a>
+        </form>
+      </div>
+    </div>
+  </div>  
 @endsection

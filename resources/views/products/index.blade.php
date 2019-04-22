@@ -27,11 +27,8 @@
                 <td>No</td>
                 <td>Nama Produk</td>
                 <td>Harga Produk</td>
-                <td>Deskripsi</td>
-                <td>Rate</td>
                 <td>Stok</td>
-                <td>Berat</td>
-                <td colspan="2">Action</td>
+                <td colspan="3">Action</td>
               </tr>
           </thead>
             <tbody>
@@ -40,10 +37,8 @@
                     <td>{{$loop->iteration}}</td>
                     <td>{{$product->product_name}}</td>
                     <td>Rp{{number_format($product->price, 0)}}</td>
-                    <td>{{$product->description}}</td>
-                    <td>{{$product->product_rate}} star</td>
                     <td>{{$product->stock}} item</td>
-                    <td>{{$product->weight}} kg</td>
+                    <td><a href="{{ route('products.show',$product->id)}}" class="btn btn-info">Detail</a></td>
                     <td><a href="{{ route('products.edit',$product->id)}}" class="btn btn-primary">Edit</a></td>
                     <td>
                         <form action="{{ route('products.destroy', $product->id)}}" method="post">

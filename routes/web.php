@@ -26,10 +26,10 @@ Route::view('/home', 'home')->middleware('auth');
 
 Route::get('/admin', 'AdminController@index');
 
-Route::resource('couriers', 'CourierController');
+Route::resource('/admin/couriers', 'CourierController');
 
-Route::resource('products', 'ProductController');
+Route::resource('/admin/products', 'ProductController');
 
-Route::resource('productcategories', 'ProductCategoryController');
+Route::resource('/admin/productcategories', 'ProductCategoryController');
 
-Route::resource('productcategorydetails', 'ProductCategoryDetailsController');
+Route::resource('/admin/productcategorydetails', 'ProductCategoryDetailsController');

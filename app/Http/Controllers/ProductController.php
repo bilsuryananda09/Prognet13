@@ -4,9 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
+use App\ProductCategories;
+use App\ProductCategoryDetails;
 
 class ProductController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -27,8 +35,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
-        return view('products.create');
+        $productcategories = ProductCategories::get();
+        return view('products.create', compact("productcategories"));
     }
 
     /**
@@ -39,13 +47,13 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
         $request->validate([
             'product_name'=>'required',
             'price'=>'required',
             'description'=>'required',
             'stock'=>'required',
-            'weight'=>'required'
+            'weight'=>'required',
+            'categories'=>'required',
         ]);
         $product = new Product([
             'product_name' => $request->get('product_name'),
@@ -56,7 +64,16 @@ class ProductController extends Controller
             'weight' => $request->get('weight')
         ]);
         $product->save();
-        return redirect('/products')->with('success', 'Product has been added');
+
+        foreach ($_POST['categories'] as $category) {
+            $productcategory = new ProductCategoryDetails([
+                'product_id' => $product->id,
+                'category_id' => $category
+            ]); 
+            $productcategory->save();
+        }
+
+        return redirect('/admin/products')->with('success', 'Product has been added');
     }
 
     /**
@@ -78,10 +95,16 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
-        $product = Product::find($id);
+        $singleProduct = Product::find($id);
+        $product = Product::select('products.*')
+            ->where("products.id", $id)
+            ->join('product_category_details', 'product_category_details.product_id', '=', 'products.id')
+            ->join("product_categories", "product_category_details.category_id", "=", "product_categories.id")
+            ->select("products.*", "product_categories.id as category_id")
+            ->get();
+        $productcategories = ProductCategories::get();
 
-        return view('products.edit', compact('product'));
+        return view('products.edit', compact('product', 'singleProduct', 'productcategories'));
     }
 
     /**
@@ -110,7 +133,7 @@ class ProductController extends Controller
         $product->weight = $request->get('weight');
         $product->save();
 
-        return redirect('/products')->with('success', 'Product has been updated');
+        return redirect('/admin/products')->with('success', 'Product has been updated');
     }
 
     /**
@@ -125,6 +148,6 @@ class ProductController extends Controller
         $product = Product::find($id);
         $product->delete();
 
-        return redirect('/products')->with('success', 'Product has been deleted successfully');
+        return redirect('/admin/products')->with('success', 'Product has been deleted successfully');
     }
 }
