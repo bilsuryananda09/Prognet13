@@ -7,6 +7,12 @@ use App\ProductCategories;
 
 class ProductCategoryController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -47,7 +53,7 @@ class ProductCategoryController extends Controller
             'category_name' => $request->get('category_name')
         ]);
         $productcategory->save();
-        return redirect('/productcategories')->with('success', 'Product category has been added');
+        return redirect('admin/productcategories')->with('success', 'Product category has been added');
     }
 
     /**
@@ -93,7 +99,7 @@ class ProductCategoryController extends Controller
         $productcategory->category_name = $request->get('category_name');
         $productcategory->save();
 
-        return redirect('/productcategories')->with('success', 'Product category has been updated');
+        return redirect('admin/productcategories')->with('success', 'Product category has been updated');
     }
 
     /**
@@ -108,6 +114,6 @@ class ProductCategoryController extends Controller
         $productcategory = ProductCategories::find($id);
         $productcategory->delete();
 
-        return redirect('/productcategories')->with('success', 'Product category has been deleted successfully');
+        return redirect('admin/productcategories')->with('success', 'Product category has been deleted successfully');
     }
 }

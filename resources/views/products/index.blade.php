@@ -35,7 +35,7 @@
                 @foreach($products as $product)
                 <tr>
                     <td>{{$loop->iteration}}</td>
-                    <td>{{$product->product_name}}</td>
+                    <td>@php echo $product->product_name @endphp</td>
                     <td>Rp{{number_format($product->price, 0)}}</td>
                     <td>{{$product->stock}} item</td>
                     <td><a href="{{ route('products.show',$product->id)}}" class="btn btn-info">Detail</a></td>

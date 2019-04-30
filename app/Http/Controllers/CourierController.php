@@ -7,6 +7,12 @@ use App\Courier;
 
 class CourierController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -47,7 +53,7 @@ class CourierController extends Controller
             'courier' => $request->get('courier')
         ]);
         $courier->save();
-        return redirect('/couriers')->with('success', 'Courier has been added');
+        return redirect('admin/couriers')->with('success', 'Courier has been added');
     }
 
     /**
@@ -93,7 +99,7 @@ class CourierController extends Controller
         $courier->courier = $request->get('courier');
         $courier->save();
 
-        return redirect('/couriers')->with('success', 'Courier has been updated');
+        return redirect('admin/couriers')->with('success', 'Courier has been updated');
     }
 
     /**
@@ -108,6 +114,6 @@ class CourierController extends Controller
         $courier = Courier::find($id);
         $courier->delete();
 
-        return redirect('/couriers')->with('success', 'Courier has been deleted successfully');
+        return redirect('admin/couriers')->with('success', 'Courier has been deleted successfully');
     }
 }
