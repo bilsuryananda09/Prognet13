@@ -68,7 +68,7 @@ class ProductController extends Controller
         foreach ($_POST['categories'] as $category) {
             $productcategory = new ProductCategoryDetails([
                 'product_id' => $product->id,
-                'category_id' => $category
+                'category_id' => $category,
             ]); 
             $productcategory->save();
         }

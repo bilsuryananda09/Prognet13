@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('/user/layouthome');
 });
 
+Auth::routes(['verify' => true]);
+
 //Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
@@ -22,20 +24,23 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware('verified'
 Route::get('/login/admin', 'Auth\LoginController@showAdminLoginForm');
 Route::post('/login/admin', 'Auth\LoginController@adminLogin');
 
-// Route::view('/home', 'home')->middleware('auth');
+Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
 
-Route::get('/admin', 'AdminController@index');
+Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
 
-Route::resource('/admin/couriers', 'CourierController');
+Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 
-Route::resource('/admin/products', 'ProductController');
+Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.update');
 
-Route::resource('/admin/productcategories', 'ProductCategoryController');
+Route::group(['prefix' => 'admin', 'guard' => 'admin'], function () {
+    Route::get('/', 'AdminController@index');
+    Route::resource('/couriers', 'CourierController');
+    Route::resource('/products', 'ProductController');
+    Route::resource('/productcategories', 'ProductCategoryController');
+});
 
-Route::resource('/admin/productcategorydetails', 'ProductCategoryDetailsController');
-
-Auth::routes(['verify' => true]);
 
 // Route::get('email/verify', 'Auth\VerificationController@show')->name('verification.notice');
 // Route::get('email/verify/{id}', 'Auth\VerificationController@verify')->name('verification.verify');
 // Route::get('email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
+// Route::view('/home', 'home')->middleware('auth');

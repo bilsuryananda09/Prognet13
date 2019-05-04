@@ -55,7 +55,7 @@
                   @if ($category->id == $item->category_id)
                     <label class="form-check-label">
                       <input type="checkbox" name="categories[]" value="{{ $category->id }}" class="form-check-input" checked>
-                      {{ $category->category_name}}
+                       @php echo $category->category_name @endphp
                     </label>
 
                     @php
@@ -67,7 +67,7 @@
                 @if ($status == 0)
                   <label class="form-check-label">
                     <input type="checkbox" name="categories[]" value="{{ $category->id }}" class="form-check-input">
-                    {{ $category->category_name}}
+                    @php echo $category->category_name @endphp
                   </label>
                 @endif
             </div>
