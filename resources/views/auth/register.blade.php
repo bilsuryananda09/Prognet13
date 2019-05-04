@@ -40,34 +40,6 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="profile_image" class="col-md-4 col-form-label text-md-right">{{ __('Profile Image') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="profile_image" type="text" class="form-control{{ $errors->has('profile_image') ? ' is-invalid' : '' }}" name="profile_image" value="{{ old('profile_image') }}" required autofocus>
-
-                                @if ($errors->has('profile_image'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('profile_image') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="status" class="col-md-4 col-form-label text-md-right">{{ __('Status') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="status" type="text" class="form-control{{ $errors->has('status') ? ' is-invalid' : '' }}" name="status" value="{{ old('status') }}" required autofocus>
-
-                                @if ($errors->has('status'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('status') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
