@@ -47,7 +47,7 @@ class ProductCategoryController extends Controller
     {
         //
         $request->validate([
-            'category_name'=>'required'
+            'category_name'=>'required|unique:product_categories'
         ]);
         $productcategory = new ProductCategories([
             'category_name' => $request->get('category_name')

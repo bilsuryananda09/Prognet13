@@ -47,7 +47,7 @@ class CourierController extends Controller
     {
         //
         $request->validate([
-            'courier'=>'required'
+            'courier'=>'required|unique:couriers'
         ]);
         $courier = new Courier([
             'courier' => $request->get('courier')
