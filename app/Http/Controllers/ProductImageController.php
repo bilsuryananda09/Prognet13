@@ -3,16 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\ProductCategories;
+use App\ProductImages;
 
-class ProductCategoryController extends Controller
+class ProductImageController extends Controller
 {
-
     public function __construct()
     {
         $this->middleware('auth:admin');
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -21,9 +20,9 @@ class ProductCategoryController extends Controller
     public function index()
     {
         //
-        $productcategories = ProductCategories::all();
+        $productimages = ProductImages::all();
 
-        return view('product_categories.index', compact('productcategories'));
+        return view('product_images.index', compact('productimages'));
     }
 
     /**
@@ -34,7 +33,7 @@ class ProductCategoryController extends Controller
     public function create()
     {
         //
-        return view('product_categories.create');
+        return view('product_images.create');
     }
 
     /**
@@ -47,13 +46,15 @@ class ProductCategoryController extends Controller
     {
         //
         $request->validate([
-            'category_name'=>'required|unique:product_categories'
+            'product_id'=>'required',
+            'image_name'=>'required'
         ]);
-        $productcategory = new ProductCategories([
-            'category_name' => $request->get('category_name')
+        $productimage = new ProductImages([
+            'product_id' => $request->get('product_id'),
+            'image_name' => $request->get('image_name')
         ]);
-        $productcategory->save();
-        return redirect('admin/productcategories')->with('success', 'Product category has been added');
+        $productimage->save();
+        return redirect('admin/productimages')->with('success', 'Product image has been added');
     }
 
     /**
@@ -76,9 +77,9 @@ class ProductCategoryController extends Controller
     public function edit($id)
     {
         //
-        $productcategory = ProductCategories::find($id);
+        $productimage = ProductImages::find($id);
 
-        return view('product_categories.edit', compact('productcategory'));
+        return view('product_images.edit', compact('productimage'));
     }
 
     /**
@@ -92,14 +93,16 @@ class ProductCategoryController extends Controller
     {
         //
         $request->validate([
-            'category_name'=>'required|unique:product_categories'
+            'product_id'=>'required',
+            'image_name'=>'required',
         ]);
 
-        $productcategory = ProductCategories::find($id);
-        $productcategory->category_name = $request->get('category_name');
-        $productcategory->save();
+        $productimage = ProductImages::find($id);
+        $productimage->product_id = $request->get('product_id');
+        $productimage->image_name = $request->get('image_name');
+        $productimage->save();
 
-        return redirect('admin/productcategories')->with('success', 'Product category has been updated');
+        return redirect('admin/productimages')->with('success', 'Product image category has been updated');
     }
 
     /**
@@ -111,9 +114,9 @@ class ProductCategoryController extends Controller
     public function destroy($id)
     {
         //
-        $productcategory = ProductCategories::find($id);
-        $productcategory->delete();
+        $productimage = ProductImages::find($id);
+        $productimage->delete();
 
-        return redirect('admin/productcategories')->with('success', 'Product category has been deleted successfully');
+        return redirect('admin/productimages')->with('success', 'Product image has been deleted successfully');
     }
 }

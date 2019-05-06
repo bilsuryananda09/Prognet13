@@ -37,6 +37,7 @@ Route::group(['prefix' => 'admin', 'guard' => 'admin'], function () {
     Route::resource('/couriers', 'CourierController');
     Route::resource('/products', 'ProductController');
     Route::resource('/productcategories', 'ProductCategoryController');
+    Route::resource('/productimages', 'ProductImageController');
 });
 
 
