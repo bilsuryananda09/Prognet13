@@ -11,14 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('/user/layouthome');
-});
+// Route::get('/', function () {
+//     return view('/user/layouthome');
+// });
 
 Auth::routes(['verify' => true]);
 
 //Auth::routes();
-
+Route::get('/', 'UserController@index')->name('index');
+Route::get('/about', 'UserController@about')->name('about');
+Route::get('/product', 'UserController@product')->name('product');
 Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
 
 Route::get('/login/admin', 'Auth\LoginController@showAdminLoginForm');
