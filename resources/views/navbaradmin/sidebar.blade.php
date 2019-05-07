@@ -32,7 +32,7 @@
         <div class="collapse" id="products">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item">
-              <a class="nav-link" href="/admin/products">View Products</a>
+              <a class="nav-link" href="/admin/products">Products</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/admin/productcategories">Product Categories</a>

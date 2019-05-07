@@ -20,7 +20,7 @@
     <div class="card">
       <div class="card-body">
         <h4 class="card-title">Add Product</h4>
-        <form class="forms-sample" method="post" action="{{ route('products.store') }}">
+        <form class="forms-sample" method="post" action="{{ route('products.store') }}" enctype="multipart/form-data">
           @csrf
           <div class="form-group">
             <label for="product_name">Product Name</label>
@@ -41,6 +41,12 @@
           <div class="form-group">
             <label for="weight">Weight</label>
             <input type="number" min="0" name="weight" class="form-control" id="weight" placeholder="Weight" required>
+          </div>
+          <div class="form-group">
+            <label for="file">File Upload</label>
+            <div class="input-group col-xs-12">
+              <input type="file" name="images[]" class="file-upload-browse btn btn-info" multiple>
+            </div>
           </div>
           <div class="form-group">
             <label for="categories">Categories</label>

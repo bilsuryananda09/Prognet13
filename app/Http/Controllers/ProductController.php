@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\ProductCategories;
 use App\ProductCategoryDetails;
+use App\ProductImages;
 
 class ProductController extends Controller
 {
@@ -50,11 +51,11 @@ class ProductController extends Controller
         $request->validate([
             'product_name'=>'required|unique:products',
             'price'=>'required',
-            'description'=>'required',
             'stock'=>'required',
             'weight'=>'required',
             'categories'=>'required',
         ]);
+
         $product = new Product([
             'product_name' => $request->get('product_name'),
             'price' => $request->get('price'),
