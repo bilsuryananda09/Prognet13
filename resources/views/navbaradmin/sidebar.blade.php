@@ -38,7 +38,7 @@
               <a class="nav-link" href="/admin/productcategories">Product Categories</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="pages/ui-features/typography.html">Product Images</a>
+              <a class="nav-link" href="/admin/productimages">Product Images</a>
             </li>
           </ul>
         </div>

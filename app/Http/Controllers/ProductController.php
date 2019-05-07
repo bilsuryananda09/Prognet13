@@ -119,7 +119,7 @@ class ProductController extends Controller
     {
         //
         $request->validate([
-            'product_name'=>'required',
+            'product_name'=>'required|unique:products',
             'price'=>'required',
             'description'=>'required',
             'stock'=>'required',
