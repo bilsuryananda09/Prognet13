@@ -64,7 +64,7 @@ class ProductController extends Controller
             'product_rate' => 0,
             'stock' => $request->get('stock'),
             'weight' => $request->get('weight'),
-            'status' => 0,
+            'status' => 1,
         ]);
         $product->save();
 
@@ -80,7 +80,7 @@ class ProductController extends Controller
         {
             $image = $request->file('image');
             $filename = time() . '.' . $image->getClientOriginalExtension();
-            Image::make($image)->resize(300, 300)->save(public_path('/images/product' . $filename));
+            Image::make($image)->resize(300, 300)->save(public_path('/images/product/' . $filename));
 
             $productimage = new ProductImages([
                 'product_id' => $product->id,

@@ -16,6 +16,7 @@ class Product extends Model
         'description',
         'product_rate',
         'stock',
-        'weight'
+        'weight',
+        'status'
     ];
 }
