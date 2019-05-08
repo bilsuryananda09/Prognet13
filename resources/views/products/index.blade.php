@@ -33,6 +33,7 @@
           </thead>
             <tbody>
                 @foreach($products as $product)
+                @if (!$product->status == 0)
                 <tr>
                     <td>{{$loop->iteration}}</td>
                     <td>@php echo $product->product_name @endphp</td>
@@ -48,6 +49,7 @@
                         </form>
                     </td>
                 </tr>
+                @endif
                 @endforeach
             </tbody>
           </table>

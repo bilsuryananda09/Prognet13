@@ -45,7 +45,7 @@
           <div class="form-group">
             <label for="file">File Upload</label>
             <div class="input-group col-xs-12">
-              <input type="file" name="images[]" class="file-upload-browse btn btn-info" multiple>
+              <input type="file" name="image" class="file-upload-browse btn btn-info" multiple>
             </div>
           </div>
           <div class="form-group">

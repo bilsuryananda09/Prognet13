@@ -109,21 +109,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							</script>
 							<div id="OR" class="hidden-xs">OR</div>
 						</div>
-						<div class="col-md-4 modal_body_right modal_body_right1">
-							<div class="row text-center sign-with">
-								<div class="col-md-12">
-									<h3 class="other-nw">Sign in with</h3>
-								</div>
-								<div class="col-md-12">
-									<ul class="social">
-										<li class="social_facebook"><a href="#" class="entypo-facebook"></a></li>
-										<li class="social_dribbble"><a href="#" class="entypo-dribbble"></a></li>
-										<li class="social_twitter"><a href="#" class="entypo-twitter"></a></li>
-										<li class="social_behance"><a href="#" class="entypo-behance"></a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
 					</div>
 				</div>
 			</div>
@@ -141,23 +126,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
     @yield('content')
     
-    <!-- newsletter -->
-	<div class="newsletter">
-            <div class="container">
-                <div class="col-md-6 w3agile_newsletter_left">
-                    <h3>Newsletter</h3>
-                    <p>Excepteur sint occaecat cupidatat non proident, sunt.</p>
-                </div>
-                <div class="col-md-6 w3agile_newsletter_right">
-                    <form action="#" method="post">
-                        <input type="email" name="Email" placeholder="Email" required="">
-                        <input type="submit" value="" />
-                    </form>
-                </div>
-                <div class="clearfix"> </div>
-            </div>
-        </div>
-        <!-- //newsletter -->
         @include('navbaruser.bottombar')  
         <!-- cart-js -->
         <script src="/ElectronicStore/js/minicart.js"></script>

@@ -31,19 +31,21 @@
             </thead>
               <tbody>
                   @foreach($productcategories as $productcategory)
+                  {{-- @if (!$productcategory->status == 0) --}}
                   <tr>
-                    <td>{{$loop->iteration}}</td>
-                    {{-- <td>{{$productcategory->category_name}}</td> --}}
-                    <td>@php echo $productcategory->category_name @endphp</td>
-                    <td><a href="{{ route('productcategories.edit',$productcategory->id)}}" class="btn btn-primary">Edit</a></td>
-                    <td>
-                      <form action="{{ route('productcategories.destroy', $productcategory->id)}}" method="post">
-                        @csrf
-                        @method('DELETE')
-                        <button class="btn btn-danger" type="submit">Delete</button>
-                      </form>
-                    </td>
-                  </tr>
+                      <td>{{$loop->iteration}}</td>
+                      {{-- <td>{{$productcategory->category_name}}</td> --}}
+                      <td>@php echo $productcategory->category_name @endphp</td>
+                      <td><a href="{{ route('productcategories.edit',$productcategory->id)}}" class="btn btn-primary">Edit</a></td>
+                      <td>
+                        <form action="{{ route('productcategories.destroy', $productcategory->id)}}" method="post">
+                          @csrf
+                          @method('DELETE')
+                          <button class="btn btn-danger" type="submit">Delete</button>
+                        </form>
+                      </td>
+                    </tr>
+                  {{-- @endif --}}
                 @endforeach
               </tbody>
             </table>

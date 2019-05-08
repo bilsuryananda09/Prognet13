@@ -4,38 +4,35 @@
             <div class="w3_footer_grids">
                 <div class="col-md-3 w3_footer_grid">
                     <h3>Contact</h3>
-                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse.</p>
                     <ul class="address">
-                        <li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>1234k Avenue, 4th block, <span>New York City.</span></li>
-                        <li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">info@example.com</a></li>
+                        <li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>Jalan Raya Kampus Udayana, <span>Bali</span></li>
+                        <li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:Prognet13@gmail.com">Prognet13@gmail.com</a></li>
                         <li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>+1234 567 567</li>
                     </ul>
                 </div>
                 <div class="col-md-3 w3_footer_grid">
                     <h3>Information</h3>
                     <ul class="info"> 
-                        <li><a href="/ElectronicStore/about.html">About Us</a></li>
-                        <li><a href="/ElectronicStore/mail.html">Contact Us</a></li>
-                        <li><a href="/ElectronicStore/codes.html">Short Codes</a></li>
-                        <li><a href="/ElectronicStore/faq.html">FAQ's</a></li>
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="faq.html">FAQ's</a></li>
                         <li><a href="/ElectronicStore/products.html">Special Products</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3 w3_footer_grid">
                     <h3>Category</h3>
                     <ul class="info"> 
-                        <li><a href="/ElectronicStore/products.html">Mobiles</a></li>
-                        <li><a href="/ElectronicStore/products1.html">Laptops</a></li>
-                        <li><a href="/ElectronicStore/products.html">Purifiers</a></li>
-                        <li><a href="/ElectronicStore/products1.html">Wearables</a></li>
-                        <li><a href="/ElectronicStore/products2.html">Kitchen</a></li>
+                        <li><a href="/product">Mobiles</a></li>
+                        <li><a href="product">Laptops</a></li>
+                        <li><a href="/product">Purifiers</a></li>
+                        <li><a href="/product">Wearables</a></li>
+                        <li><a href="/product">Kitchen</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3 w3_footer_grid">
                     <h3>Profile</h3>
                     <ul class="info"> 
-                        <li><a href="/ElectronicStore/index.html">Home</a></li>
-                        <li><a href="/ElectronicStore/products.html">Today's Deals</a></li>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/product">Today's Deals</a></li>
                     </ul>
                     <h4>Follow Us</h4>
                     <div class="agileits_social_button">
@@ -55,9 +52,6 @@
                 <div class="footer-copy-pos">
                     <a href="#home1" class="scroll"><img src="/ElectronicStore/images/arrow.png" alt=" " class="img-responsive" /></a>
                 </div>
-            </div>
-            <div class="container">
-                <p>&copy; 2017 Electronic Store. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
             </div>
         </div>
     </div>

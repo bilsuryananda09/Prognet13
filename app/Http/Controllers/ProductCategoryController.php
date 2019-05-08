@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\ProductCategories;
+use App\ProductCategoryDetails;
 
 class ProductCategoryController extends Controller
 {
@@ -112,6 +113,12 @@ class ProductCategoryController extends Controller
     {
         //
         $productcategory = ProductCategories::find($id);
+
+        $productcategorydetails = ProductCategoryDetails::where('category_id', $productcategory->id)->get();
+
+        foreach ($productcategorydetails as $detail) {
+            $detail->delete();
+        }
         $productcategory->delete();
 
         return redirect('admin/productcategories')->with('success', 'Product category has been deleted successfully');

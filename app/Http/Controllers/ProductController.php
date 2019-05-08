@@ -7,6 +7,7 @@ use App\Product;
 use App\ProductCategories;
 use App\ProductCategoryDetails;
 use App\ProductImages;
+use Image;
 
 class ProductController extends Controller
 {
@@ -62,7 +63,8 @@ class ProductController extends Controller
             'description' => $request->get('description'),
             'product_rate' => 0,
             'stock' => $request->get('stock'),
-            'weight' => $request->get('weight')
+            'weight' => $request->get('weight'),
+            'status' => 0,
         ]);
         $product->save();
 
@@ -72,6 +74,19 @@ class ProductController extends Controller
                 'category_id' => $category,
             ]); 
             $productcategory->save();
+        }
+
+        if($request->hasFile('image'))
+        {
+            $image = $request->file('image');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            Image::make($image)->resize(300, 300)->save(public_path('/images/product' . $filename));
+
+            $productimage = new ProductImages([
+                'product_id' => $product->id,
+                'image_name' => $filename,
+            ]);
+            $productimage->save();
         }
 
         return redirect('/admin/products')->with('success', 'Product has been added');
@@ -117,14 +132,37 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
         $request->validate([
-            'product_name'=>'required|unique:products',
+            'product_name'=>'required',
             'price'=>'required',
             'description'=>'required',
             'stock'=>'required',
-            'weight'=>'required'
+            'weight'=>'required',
+            'categories'=>'required'
         ]);
+        
+        $category_details = ProductCategoryDetails::where("product_id", $id)->get();
+
+        foreach($category_details as $category_detail){
+            if(!in_array($category_detail->category_id, $request->categories)){
+                ProductCategoryDetails::where("id", $category_detail->id)->delete();
+            }
+        }
+
+        foreach ($request->categories as $category) {
+            $category_detail = ProductCategoryDetails::where("product_id", $id)->where("category_id", $category)->first();
+
+            if(!$category_detail){
+                $item = new ProductCategoryDetails(
+                    [
+                        "product_id" => $id,
+                        "category_id" => $category
+                    ]
+                );
+
+                $item->save();
+            }
+        }
 
         $product = Product::find($id);
         $product->product_name = $request->get('product_name');
@@ -147,7 +185,8 @@ class ProductController extends Controller
     {
         //
         $product = Product::find($id);
-        $product->delete();
+        $product->status = 0;
+        $product->save();
 
         return redirect('/admin/products')->with('success', 'Product has been deleted successfully');
     }
