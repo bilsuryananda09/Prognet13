@@ -49,47 +49,66 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'product_name'=>'required|unique:products',
-            'price'=>'required',
-            'stock'=>'required',
-            'weight'=>'required',
-            'categories'=>'required',
-        ]);
+        // $request->validate([
+        //     'product_name'=>'required|unique:products',
+        //     'price'=>'required',
+        //     'stock'=>'required',
+        //     'weight'=>'required',
+        //     'categories'=>'required',
+        // ]);
 
-        $product = new Product([
-            'product_name' => $request->get('product_name'),
-            'price' => $request->get('price'),
-            'description' => $request->get('description'),
-            'product_rate' => 0,
-            'stock' => $request->get('stock'),
-            'weight' => $request->get('weight'),
-            'status' => 1,
-        ]);
-        $product->save();
+        // $product = new Product([
+        //     'product_name' => $request->get('product_name'),
+        //     'price' => $request->get('price'),
+        //     'description' => $request->get('description'),
+        //     'product_rate' => 0,
+        //     'stock' => $request->get('stock'),
+        //     'weight' => $request->get('weight'),
+        //     'status' => 1,
+        // ]);
+        // $product->save();
 
-        foreach ($_POST['categories'] as $category) {
-            $productcategory = new ProductCategoryDetails([
-                'product_id' => $product->id,
-                'category_id' => $category,
-            ]); 
-            $productcategory->save();
-        }
+        // foreach ($_POST['categories'] as $category) {
+        //     $productcategory = new ProductCategoryDetails([
+        //         'product_id' => $product->id,
+        //         'category_id' => $category,
+        //     ]); 
+        //     $productcategory->save();
+        // }
 
+        
         if($request->hasFile('image'))
         {
-            $image = $request->file('image');
-            $filename = time() . '.' . $image->getClientOriginalExtension();
-            Image::make($image)->resize(300, 300)->save(public_path('/images/product/' . $filename));
+            if($request->hasfile('image'))
+            {
+   
+               foreach($request->file('image') as $file)
+               {
+                   $name=$file->getClientOriginalName();
+                //    $file->move(public_path().'/files/', $name);  
+                   $data[] = $name;  
+               }
+            }
+   
+            $file= new File();
+            $file->filename=json_encode($data);
 
-            $productimage = new ProductImages([
-                'product_id' => $product->id,
-                'image_name' => $filename,
-            ]);
-            $productimage->save();
+            return $file;
+        //     foreach ($request->image as $file) {
+        //         // $image = $file->file('image');
+        //         $filename = time() . '.' . $file->getClientOriginalExtension();
+        //         Image::make($file)->resize(300, 300)->save(public_path('/images/product/' . $filename));
+
+        //         $productimage = new ProductImages([
+        //             // 'product_id' => $product->id,
+        //             'image_name' => $filename,
+        //         ]);
+        //         return $productimage;
+        //         // $productimage->save();
+        //     }
         }
 
-        return redirect('/admin/products')->with('success', 'Product has been added');
+        // return redirect('/admin/products')->with('success', 'Product has been added');
     }
 
     /**
