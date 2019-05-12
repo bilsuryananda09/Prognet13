@@ -44,16 +44,15 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', '127.0.0.1'),
-            'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
+            'host' => env('MYSQL_ADDON_HOST', 'b9tug8tke8j5jknpc4st-mysql.services.clever-cloud.com'),
+            'port' => env('MYSQL_ADDON_PORT', '3306'),
+            'database' => env('MYSQL_ADDON_DB', 'b9tug8tke8j5jknpc4st'),
+            'username' => env('MYSQL_ADDON_USER', 'umurhrhxltsxsyhm'),
+            'password' => env('MYSQL_ADDON_PASSWORD', '7qNLLXq1kisWx0lWp4n0'),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
             'prefix' => '',
-            'prefix_indexes' => true,
             'strict' => true,
             'engine' => null,
             'options' => extension_loaded('pdo_mysql') ? array_filter([
