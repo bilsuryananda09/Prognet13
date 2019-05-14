@@ -119,11 +119,9 @@ return [
     |
     */
 
-    'key' => env('base64:tQbFzxwUfOfKKqNlbjXuduwaUFDQUy+NL8DBfgb3o3s='),
-
+    'key' => env('APP_KEY'),
+    
     'cipher' => 'AES-256-CBC',
-
-    'log' => env('APP_LOG', 'syslog'),
 
     /*
     |--------------------------------------------------------------------------
@@ -173,7 +171,7 @@ return [
          */
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
+        App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
