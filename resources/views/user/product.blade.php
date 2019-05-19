@@ -111,24 +111,7 @@
                         </div>
                     </div>
                     <div class="col-md-8 w3ls_mobiles_grid_right">
-                        <div class="col-md-6 w3ls_mobiles_grid_right_left">
-                            <div class="w3ls_mobiles_grid_right_grid1">
-                                <img src="/ElectronicStore/images/48.jpg" alt=" " class="img-responsive" />
-                                <div class="w3ls_mobiles_grid_right_grid1_pos1">
-                                    <h3>Attractive<span> New</span> Wrist Watches</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 w3ls_mobiles_grid_right_left">
-                            <div class="w3ls_mobiles_grid_right_grid1">
-                                <img src="/ElectronicStore/images/49.jpg" alt=" " class="img-responsive" />
-                                <div class="w3ls_mobiles_grid_right_grid1_pos"> 
-                                    <h3>Best Prices On<span> Laptop</span>Upto 50% Off</h3>
-                                </div>
-                            </div>
-                        </div>
                         <div class="clearfix"> </div>
-    
                         <div class="w3ls_mobiles_grid_right_grid2">
                             <div class="w3ls_mobiles_grid_right_grid2_left">
                                 <h3>Showing Results: 0-1</h3>

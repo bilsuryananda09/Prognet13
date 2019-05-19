@@ -44,10 +44,16 @@
         </div>
       </li>
       <li class="nav-item">
-          <a class="nav-link" href="/admin/couriers">
-            <i class="menu-icon fa fa-car"></i>
-            <span class="menu-title">Courier</span>
-          </a>
-        </li>
+        <a class="nav-link" href="/admin/couriers">
+          <i class="menu-icon fa fa-car"></i>
+          <span class="menu-title">Courier</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/admin/discount">
+          <i class="menu-icon fa fa-dollar"></i>
+          <span class="menu-title">Discount</span>
+        </a>
+      </li>
     </ul>
   </nav>
