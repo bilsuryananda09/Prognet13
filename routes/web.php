@@ -21,6 +21,7 @@ Auth::routes(['verify' => true]);
 Route::get('/', 'UserController@index')->name('index');
 Route::get('/about', 'UserController@about')->name('about');
 Route::get('/product', 'UserController@product')->name('product');
+Route::get('/productdetail', 'UserController@productdetail')->name('productdetail');
 Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
 
 Route::get('/login/admin', 'Auth\LoginController@showAdminLoginForm');

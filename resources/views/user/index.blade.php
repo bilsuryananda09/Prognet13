@@ -73,7 +73,7 @@
 												</ul>
 											</div>
 										</div> 
-										<h5><a href="single.html">Mobile Phone1</a></h5>
+										<h5><a href="/productdetail">Mobile Phone1</a></h5>
 										<div class="simpleCart_shelfItem">
 											<p><span>$380</span> <i class="item_price">$350</i></p>
 											<form action="#" method="post">
