@@ -103,7 +103,7 @@
 												</ul>
 											</div>
 										</div>
-										<h5><a href="single.html">Mobile Phone2</a></h5>
+										<h5><a href="/productdetail">Mobile Phone2</a></h5>
 										<div class="simpleCart_shelfItem">
 											<p><span>$330</span> <i class="item_price">$302</i></p>
 											<form action="#" method="post">
@@ -133,7 +133,7 @@
 												</ul>
 											</div>
 										</div>
-										<h5><a href="single.html">Mobile Phone3</a></h5>
+										<h5><a href="/productdetail">Mobile Phone3</a></h5>
 										<div class="simpleCart_shelfItem">
 											<p><span>$250</span> <i class="item_price">$245</i></p>
 											<form action="#" method="post">
@@ -168,7 +168,7 @@
 												</ul>
 											</div>
 										</div>
-										<h5><a href="single.html">Speakers</a></h5>
+										<h5><a href="/productdetail">Speakers</a></h5>
 											<p><span>$320</span> <i class="item_price">$250</i></p>
 										<div class="simpleCart_shelfItem">
 											<form action="#" method="post">
@@ -198,7 +198,7 @@
 												</ul>
 											</div>
 										</div>
-										<h5><a href="single.html">Headphones</a></h5>
+										<h5><a href="/productdetail">Headphones</a></h5>
 										<div class="simpleCart_shelfItem">
 											<p><span>$180</span> <i class="item_price">$150</i></p>
 											<form action="#" method="post">
@@ -228,7 +228,7 @@
 												</ul>
 											</div>
 										</div>
-										<h5><a href="single.html">Audio Player</a></h5>
+										<h5><a href="/productdetail">Audio Player</a></h5>
 										<div class="simpleCart_shelfItem">
 											<p><span>$220</span> <i class="item_price">$180</i></p>
 											<form action="#" method="post">
@@ -263,7 +263,7 @@
 												</ul>
 											</div>
 										</div>
-										<h5><a href="single.html">Laptop</a></h5>
+										<h5><a href="/productdetail">Laptop</a></h5>
 										<div class="simpleCart_shelfItem">
 											<p><span>$880</span> <i class="item_price">$850</i></p>
 											<form action="#" method="post">
@@ -293,7 +293,7 @@
 												</ul>
 											</div>
 										</div>
-										<h5><a href="single.html">Notebook</a></h5>
+										<h5><a href="/productdetailtml">Notebook</a></h5>
 										<div class="simpleCart_shelfItem">
 											<p><span>$290</span> <i class="item_price">$280</i></p>
 											<form action="#" method="post">
@@ -323,7 +323,7 @@
 												</ul>
 											</div>
 										</div>
-										<h5><a href="single.html">Kid's Toy</a></h5>
+										<h5><a href="/productdetailtml">Kid's Toy</a></h5>
 										<div class="simpleCart_shelfItem">
 											<p><span>$120</span> <i class="item_price">$80</i></p>
 											<form action="#" method="post">
@@ -358,7 +358,7 @@
 												</ul>
 											</div>
 										</div>
-										<h5><a href="single.html">Refrigerator</a></h5>
+										<h5><a href="/productdetailtml">Refrigerator</a></h5>
 										<div class="simpleCart_shelfItem">
 											<p><span>$950</span> <i class="item_price">$820</i></p>
 											<form action="#" method="post">
@@ -388,7 +388,7 @@
 												</ul>
 											</div>
 										</div>
-										<h5><a href="single.html">LED Tv</a></h5>
+										<h5><a href="/productdetail">LED Tv</a></h5>
 										<div class="simpleCart_shelfItem">
 											<p><span>$700</span> <i class="item_price">$680</i></p>
 											<form action="#" method="post">
@@ -418,7 +418,7 @@
 												</ul>
 											</div>
 										</div>
-										<h5><a href="single.html">Washing Machine</a></h5>
+										<h5><a href="/productdetailt">Washing Machine</a></h5>
 										<div class="simpleCart_shelfItem">
 											<p><span>$520</span> <i class="item_price">$510</i></p>
 											<form action="#" method="post">
@@ -453,7 +453,7 @@
 												</ul>
 											</div>
 										</div>
-										<h5><a href="single.html">Grinder</a></h5>
+										<h5><a href="/productdetailt">Grinder</a></h5>
 										<div class="simpleCart_shelfItem">
 											<p><span>$460</span> <i class="item_price">$450</i></p>
 											<form action="#" method="post">
@@ -483,7 +483,7 @@
 												</ul>
 											</div>
 										</div>
-										<h5><a href="single.html">Water Purifier</a></h5>
+										<h5><a href="/productdetail">Water Purifier</a></h5>
 										<div class="simpleCart_shelfItem">
 											<p><span>$390</span> <i class="item_price">$350</i></p>
 											<form action="#" method="post">
@@ -513,7 +513,7 @@
 												</ul>
 											</div>
 										</div>
-										<h5><a href="single.html">Coffee Maker</a></h5>
+										<h5><a href="/productdetail">Coffee Maker</a></h5>
 										<div class="simpleCart_shelfItem">
 											<p><span>$250</span> <i class="item_price">$220</i></p>
 											<form action="#" method="post">
@@ -967,7 +967,7 @@
 			<div class="agileinfo_banner_bottom1_grids">
 				<div class="col-md-7 agileinfo_banner_bottom1_grid_left">
 					<h3>Grand Opening Event With flat<span>20% <i>Discount</i></span></h3>
-					<a href="products.html">Shop Now</a>
+					<a href="/product">Shop Now</a>
 				</div>
 				<div class="col-md-5 agileinfo_banner_bottom1_grid_right">
 					<h4>hot deal</h4>
@@ -1071,7 +1071,7 @@
 									</ul>
 								</div>
 							</div>
-							<h5><a href="single.html">Laptops</a></h5>
+							<h5><a href="/productdetail">Laptops</a></h5>
 							<div class="simpleCart_shelfItem">
 								<p><span>$520</span> <i class="item_price">$500</i></p>
 								<form action="#" method="post">
@@ -1100,7 +1100,7 @@
 									</ul>
 								</div>
 							</div>
-							<h5><a href="single.html">Black Phone</a></h5>
+							<h5><a href=/productdetail"">Black Phone</a></h5>
 							<div class="simpleCart_shelfItem">
 								<p><span>$380</span> <i class="item_price">$370</i></p>
 								<form action="#" method="post">
@@ -1129,7 +1129,7 @@
 									</ul>
 								</div>
 							</div>
-							<h5><a href="single.html">Kids Toy</a></h5>
+							<h5><a href="/productdetail">Kids Toy</a></h5>
 							<div class="simpleCart_shelfItem">
 								<p><span>$150</span> <i class="item_price">$100</i></p>
 								<form action="#" method="post">
@@ -1158,7 +1158,7 @@
 									</ul>
 								</div>
 							</div>
-							<h5><a href="single.html">Induction Stove</a></h5>
+							<h5><a href="/productdetail">Induction Stove</a></h5>
 							<div class="simpleCart_shelfItem">
 								<p><span>$280</span> <i class="item_price">$250</i></p>
 								<form action="#" method="post">
