@@ -90,30 +90,6 @@
 							<li><a href="#" class="gray"><span></span></a></li>
 						</ul>
 					</div>
-					<div class="color-quality-right">
-						<h5>Quality :</h5>
-						 <div class="quantity"> 
-							<div class="quantity-select">                           
-								<div class="entry value-minus1">&nbsp;</div>
-								<div class="entry value1"><span>1</span></div>
-								<div class="entry value-plus1 active">&nbsp;</div>
-							</div>
-						</div>
-						<!--quantity-->
-								<script>
-								$('.value-plus1').on('click', function(){
-									var divUpd = $(this).parent().find('.value1'), newVal = parseInt(divUpd.text(), 10)+1;
-									divUpd.text(newVal);
-								});
-
-								$('.value-minus1').on('click', function(){
-									var divUpd = $(this).parent().find('.value1'), newVal = parseInt(divUpd.text(), 10)-1;
-									if(newVal>=1) divUpd.text(newVal);
-								});
-								</script>
-							<!--quantity-->
-
-					</div>
 					<div class="clearfix"> </div>
 				</div>
 				<div class="simpleCart_shelfItem">

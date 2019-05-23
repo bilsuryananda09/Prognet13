@@ -69,11 +69,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									</ul>		
 									<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
 										<div class="facts">
-											<div class="register">
+											<div class="login">
 												<form action="#" method="post">			
 													<input name="Email" placeholder="Email Address" type="text" required="">						
 													<input name="Password" placeholder="Password" type="password" required="">										
-													<div class="sign-up">
+													<div class="sign-in">
 														<input type="submit" value="Sign in"/>
 													</div>
 												</form>

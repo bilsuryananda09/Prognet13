@@ -20,7 +20,15 @@
 		</div>
 	</div>
 @endsection
-<div class="row">
+
+@section('content')
+<div class="site-section">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-md-12">
+          </div>
+        </div>
+        <div class="row">
           <div class="col-md-6 mb-5 mb-md-0">
             <h2 class="h3 mb-3 text-black">Billing Details</h2>
             <div class="p-3 p-lg-5 border">
@@ -278,4 +286,4 @@
         <!-- </form> -->
       </div>
     </div>
-@section('content')
+@endsection

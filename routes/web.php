@@ -22,7 +22,7 @@ Route::get('/', 'UserController@index')->name('index');
 Route::get('/about', 'UserController@about')->name('about');
 Route::get('/product', 'UserController@product')->name('product');
 Route::get('/productdetail', 'UserController@productdetail')->name('productdetail');
-Route::get('/checkout', 'UserController@productdetail')->name('checkout');
+Route::get('/checkout', 'UserController@checkout')->name('checkout');
 Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
 
 Route::get('/login/admin', 'Auth\LoginController@showAdminLoginForm');
