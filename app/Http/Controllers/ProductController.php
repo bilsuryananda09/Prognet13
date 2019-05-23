@@ -86,10 +86,10 @@ class ProductController extends Controller
             {
                 
                     $filename=$file->getClientOriginalName();
-                    $path = 'images/product/'. $filename;
+                    $path = 'images/product/' . $filename;
                     if(File::exists($path)) {
                         $filename = $current_timestamp.$file->getClientOriginalName();
-                        $path = 'images/product/'. $filename;
+                        $path = 'images/product/' . $filename;
                     }
                     
                     $file->move(public_path().'/images/product/', $filename);
@@ -114,7 +114,20 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        $product = Product::get();
+        $singleProduct = Product::find($id);
+        $details = Product::select('products.*')
+            ->where("products.id", $id)
+            ->join('product_category_details', 'product_category_details.product_id', '=', 'products.id')
+            ->join("product_categories", "product_category_details.category_id", "=", "product_categories.id")
+            ->select("products.*", "product_categories.id as category_id")
+            ->get();    
+        $productcategories = ProductCategories::get();
+        $images = ProductImages::select('product_images.*')
+        ->where("product_images.product_id", $id)
+        ->get();
+
+        return view('products.show', compact('product', 'details', 'singleProduct', 'productcategories', 'images'));
     }
 
     /**
@@ -126,15 +139,18 @@ class ProductController extends Controller
     public function edit($id)
     {
         $singleProduct = Product::find($id);
-        $product = Product::select('products.*')
+        $details = Product::select('products.*')
             ->where("products.id", $id)
             ->join('product_category_details', 'product_category_details.product_id', '=', 'products.id')
             ->join("product_categories", "product_category_details.category_id", "=", "product_categories.id")
             ->select("products.*", "product_categories.id as category_id")
-            ->get();
+            ->get();    
         $productcategories = ProductCategories::get();
+        $images = ProductImages::select('product_images.*')
+        ->where("product_images.product_id", $id)
+        ->get();
 
-        return view('products.edit', compact('product', 'singleProduct', 'productcategories'));
+        return view('products.edit', compact('details', 'singleProduct', 'productcategories', 'images'));
     }
 
     /**
@@ -186,6 +202,32 @@ class ProductController extends Controller
         $product->weight = $request->get('weight');
         $product->save();
 
+        if($request->hasfile('image'))
+        {
+            $current_timestamp = Carbon::now()->timestamp;
+            $i = 1;
+            foreach($request->file('image') as $file)
+            {
+                
+                    $filename=$file->getClientOriginalName();
+                    $path = 'images/product/'. $filename;
+                    if(File::exists($path)) {
+                        $filename = $current_timestamp.$file->getClientOriginalName();
+                        $path = 'images/product/'. $filename;
+                    }
+                    
+                    $file->move(public_path().'/images/product/', $filename);
+
+                    $image = new ProductImages([
+                        'product_id' => $product->id,
+                        'image_name' => $path,
+                    ]);
+                    $image->save(); 
+                $i++;    
+            }
+        }
+
+
         return redirect('/admin/products')->with('success', 'Product has been updated');
     }
 
@@ -203,5 +245,14 @@ class ProductController extends Controller
         $product->save();
 
         return redirect('/admin/products')->with('success', 'Product has been deleted successfully');
+    }
+
+    public function destroyimage($id)
+    {
+        //
+        $productimages = ProductImages::find($id);
+        $productimages->delete();
+
+        return redirect()->back();
     }
 }

@@ -23,8 +23,25 @@
         <form class="forms-sample" method="post" action="{{ route('discount.store') }}">
           @csrf
           <div class="form-group">
-            <label for="discount">Nama Product</label>
-            <input type="text" name="discount" class="form-control" id="discount" placeholder="Product Name" required>
+            <label for="exampleFormControlSelect2">Nama Product</label>
+            <select class="form-control" id="exampleFormControlSelect2" name="product">
+              <option value="">-Select Product-</option>
+              @foreach ($product as $item)
+                <option value="{{$item->id}}">{{$item->product_name}}</option>
+              @endforeach
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="discount">Persentase Discount</label>
+            <input type="text" name="percentage" class="form-control" id="discount" placeholder="Persentase" required>
+          </div>
+          <div class="form-group">
+            <label for="discount">Start</label>
+                <input type="date" id="discount" class="form-control" name="start" required="required">
+          </div>
+          <div class="form-group">
+            <label for="discount">End</label>
+                <input type="date" id="discount" class="form-control" name="end" required="required">
           </div>
           <button type="submit" class="btn btn-success mr-2">Submit</button>
           <a class="btn btn-light" href="{{route('couriers.index')}}">Cancel</a>
