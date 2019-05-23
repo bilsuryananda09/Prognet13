@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\ProductImages;
+use App\Product;
 
 class UserController extends Controller
 {
@@ -13,7 +15,9 @@ class UserController extends Controller
 
     public function product()
     {
-        return view('user.product');
+        $product = Product::all();
+        $image = ProductImages::all();
+        return view('user.product', compact('image', 'product'));
     }
 
     public function productdetail()

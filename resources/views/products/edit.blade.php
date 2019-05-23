@@ -23,34 +23,6 @@
         <form class="forms-sample" method="post" action="{{ route('products.update', $singleProduct->id) }}" enctype="multipart/form-data">
           @method('PUT')
           @csrf
-          <div class="table-responsive">
-              <table class="table table-hover">
-                  <thead>
-                      <tr>
-                      <td>No</td>
-                      <td>Images</td>
-                      <td>Action</td>
-                      </tr>
-                  </thead>
-                  <tbody>
-                          @foreach ($images as $image)
-                              @if ($image->product_id == $singleProduct->id)
-                              <tr>
-                                  <td>{{$loop->iteration}}</td>
-                                  <td><img style="width:130px; height:130px; border-radius:0%;" src="{{asset($image->image_name)}}"></td>
-                                  <td>
-                                      <form action="{{ route('products.destroyimages', $image->id)}}" method="post">
-                                          @csrf
-                                          @method('DELETE')
-                                          <button class="btn btn-danger" type="submit">Delete</button>
-                                      </form>
-                                  </td>
-                              </tr>
-                              @endif
-                          @endforeach
-                  </tbody>
-              </table>
-          </div>
           <div class="form-group">
             <label for="product_name">Product Name</label>
             <input type="text" name="product_name" class="form-control" id="product_name" placeholder="Product Name" value="{{$singleProduct->product_name}}" required>
@@ -110,6 +82,34 @@
           <button type="submit" class="btn btn-success mr-2">Submit</button>
           <a class="btn btn-light" href="{{route('products.index')}}">Cancel</a>
         </form>
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                    <td>No</td>
+                    <td>Images</td>
+                    <td>Action</td>
+                    </tr>
+                </thead>
+                <tbody>
+                        @foreach ($images as $image)
+                            @if ($image->product_id == $singleProduct->id)
+                            <tr>
+                                <td>{{$loop->iteration}}</td>
+                                <td><img style="width:130px; height:130px; border-radius:0%;" src="{{asset($image->image_name)}}"></td>
+                                <td>
+                                    <form action="{{ route('products.destroyimages', $image->id)}}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-danger" type="submit">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            @endif
+                        @endforeach
+                </tbody>
+            </table>
+        </div>
       </div>
     </div>
   </div>  
