@@ -145,7 +145,7 @@
                                             </ul>
                                         </div>
                                     </div>
-                                    <h5><a href="single.html">Asus Laptop</a></h5> 
+                                    <h5><a href="/productdetail">Asus Laptop</a></h5> 
                                     <div class="simpleCart_shelfItem">
                                         <p><span>$980</span> <i class="item_price">$880</i></p>
                                         <form action="#" method="post">
