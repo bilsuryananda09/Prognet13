@@ -33,7 +33,9 @@ class DiscountController extends Controller
      */
     public function create()
     {
-        //
+        $product = Product::all();
+
+        return view('discount.create', compact('product'));
     }
 
     /**
@@ -44,7 +46,22 @@ class DiscountController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'product'=>'required',
+            'percentage'=>'required',
+            'start'=>'required',
+            'end'=>'required'
+        ]);
+        
+        $discount = new Discount([
+            'id_product' => $request->get('id_product'),
+            'percentage' => $request->get('percentage'),
+            'start' => $request->get('start'),
+            'end' => $request->get('end')
+        ]);
+        $discount->save();
+        
+        return redirect('admin/discount')->with('success', 'Discount has been added');
     }
 
     /**

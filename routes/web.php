@@ -33,6 +33,8 @@ Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail'
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.update');
 
+Route::delete('/admin/products/{product}/images', 'ProductController@destroyimage')->name('products.destroyimages');
+
 Route::group(['prefix' => 'admin', 'guard' => 'admin'], function () {
     Route::get('/', 'AdminController@index');
     Route::resource('/couriers', 'CourierController');

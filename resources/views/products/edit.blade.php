@@ -19,10 +19,38 @@
 <div class="col-md-12 grid-margin stretch-card">
     <div class="card">
       <div class="card-body">
-        <h4 class="card-title">Add Product</h4>
+        <h4 class="card-title">Edit Product</h4>
         <form class="forms-sample" method="post" action="{{ route('products.update', $singleProduct->id) }}" enctype="multipart/form-data">
           @method('PUT')
           @csrf
+          <div class="table-responsive">
+              <table class="table table-hover">
+                  <thead>
+                      <tr>
+                      <td>No</td>
+                      <td>Images</td>
+                      <td>Action</td>
+                      </tr>
+                  </thead>
+                  <tbody>
+                          @foreach ($images as $image)
+                              @if ($image->product_id == $singleProduct->id)
+                              <tr>
+                                  <td>{{$loop->iteration}}</td>
+                                  <td><img style="width:130px; height:130px; border-radius:0%;" src="{{asset($image->image_name)}}"></td>
+                                  <td>
+                                      <form action="{{ route('products.destroyimages', $image->id)}}" method="post">
+                                          @csrf
+                                          @method('DELETE')
+                                          <button class="btn btn-danger" type="submit">Delete</button>
+                                      </form>
+                                  </td>
+                              </tr>
+                              @endif
+                          @endforeach
+                  </tbody>
+              </table>
+          </div>
           <div class="form-group">
             <label for="product_name">Product Name</label>
             <input type="text" name="product_name" class="form-control" id="product_name" placeholder="Product Name" value="{{$singleProduct->product_name}}" required>
@@ -44,6 +72,12 @@
             <input type="number" min="0" name="weight" class="form-control" id="weight" placeholder="Weight" value="{{$singleProduct->weight}}" required>
           </div>
           <div class="form-group">
+              <label for="file">File Upload</label>
+              <div class="input-group col-xs-12">
+                <input type="file" name="image[]" class="file-upload-browse btn btn-info" multiple>
+              </div>
+            </div>
+          <div class="form-group">
             <label for="categories">Categories</label>
             @foreach ($productcategories as $category)
               @php
@@ -51,7 +85,7 @@
               @endphp
               
             <div class="form-check form-check-flat">
-                @foreach ($product as $item)
+                @foreach ($details as $item)
                   @if ($category->id == $item->category_id)
                     <label class="form-check-label">
                       <input type="checkbox" name="categories[]" value="{{ $category->id }}" class="form-check-input" checked>
