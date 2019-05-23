@@ -27,7 +27,9 @@ class ProductController extends Controller
     public function index()
     {
         //
-        $products = Product::all();
+        $products = Product::select('products.*')
+        ->where("products.status", "1")
+        ->get();
 
         return view('products.index', compact('products'));
     }
