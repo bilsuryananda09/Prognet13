@@ -116,25 +116,6 @@
 					</div>
 					<div class="clearfix"> </div>
 				</div>
-				<div class="occasional">
-					<h5>RAM :</h5>
-					<div class="colr ert">
-						<div class="check">
-							<label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i>3 GB</label>
-						</div>
-					</div>
-					<div class="colr">
-						<div class="check">
-							<label class="checkbox"><input type="checkbox" name="checkbox"><i> </i>2 GB</label>
-						</div>
-					</div>
-					<div class="colr">
-						<div class="check">
-							<label class="checkbox"><input type="checkbox" name="checkbox"><i> </i>1 GB</label>
-						</div>
-					</div>
-					<div class="clearfix"> </div>
-				</div>
 				<div class="simpleCart_shelfItem">
 					<p><span>$460</span> <i class="item_price">$450</i></p>
 					<form action="#" method="post">

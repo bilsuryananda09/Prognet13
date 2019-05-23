@@ -25,4 +25,9 @@ class UserController extends Controller
     {
         return view('user.about');
     }
+
+    public function checkout()
+    {
+        return view('user.checkout');
+    }
 }
