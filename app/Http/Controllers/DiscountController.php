@@ -22,8 +22,9 @@ class DiscountController extends Controller
     public function index()
     {
         $discount = Discount::all();
+        $product = Product::all();
 
-        return view('discount.index', compact('discount'));
+        return view('discount.index', compact('discount', 'product'));
     }
 
     /**
@@ -54,7 +55,7 @@ class DiscountController extends Controller
         ]);
         
         $discount = new Discount([
-            'id_product' => $request->get('id_product'),
+            'id_product' => $request->get('product'),
             'percentage' => $request->get('percentage'),
             'start' => $request->get('start'),
             'end' => $request->get('end')
@@ -83,7 +84,15 @@ class DiscountController extends Controller
      */
     public function edit($id)
     {
-        //
+        $discount = Discount::all();
+        $product = Product::all();
+
+        $detail = Product::select('products.*')
+        ->where()
+        ->join('discounts', 'discounts.id_product', '=', 'products.id')
+        ->get();
+
+        return view('discount.edit', compact('discount', 'product', 'detail'));
     }
 
     /**

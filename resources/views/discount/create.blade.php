@@ -27,7 +27,9 @@
             <select class="form-control" id="exampleFormControlSelect2" name="product">
               <option value="">-Select Product-</option>
               @foreach ($product as $item)
-                <option value="{{$item->id}}">{{$item->product_name}}</option>
+                @if (!$item->status == 0)  
+                  <option value="{{$item->id}}">{{$item->product_name}}</option>
+                @endif
               @endforeach
             </select>
           </div>

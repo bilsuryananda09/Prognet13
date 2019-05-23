@@ -25,6 +25,7 @@
               <thead>
                   <tr>
                       <td>No</td>
+                      <td>Nama Product</td>
                       <td>Persentase</td>
                       <td>Tanggal Mulai</td>
                       <td>Tanggal Berakhir</td>
@@ -32,21 +33,26 @@
                   </tr>
             </thead>
               <tbody>
-                  @foreach($discount as $index)
-                  <tr>
-                    <td>{{$loop->iteration}}</td>
-                    <td>{{$index->percentage}}</td>
-                    <td>{{$index->start}}</td>
-                    <td>{{$index->end}}</td>
-                    <td><a href="{{ route('discount.edit',$discount->id)}}" class="btn btn-primary">Edit</a></td>
-                    <td>
-                      <form action="{{ route('discount.destroy', $discount->id)}}" method="post">
-                        @csrf
-                        @method('DELETE')
-                        <button class="btn btn-danger" type="submit">Delete</button>
-                      </form>
-                    </td>
-                  </tr>
+                @foreach($discount as $index)
+                  @foreach ($product as $item)
+                    @if ($index->id_product == $item->id)
+                    <tr>
+                        <td>{{$loop->iteration}}</td>
+                        <td>{{$item->product_name}}</td>
+                        <td>{{$index->percentage}}</td>
+                        <td>{{$index->start}}</td>
+                        <td>{{$index->end}}</td>
+                        <td><a href="{{ route('discount.edit', $index->id)}}" class="btn btn-primary">Edit</a></td>
+                        <td>
+                          <form action="{{ route('discount.destroy', $index->id)}}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-danger" type="submit">Delete</button>
+                          </form>
+                        </td>
+                      </tr>
+                    @endif
+                  @endforeach  
                 @endforeach
               </tbody>
             </table>

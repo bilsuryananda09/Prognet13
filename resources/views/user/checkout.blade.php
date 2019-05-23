@@ -20,6 +20,7 @@
 		</div>
 	</div>
 @endsection
+<<<<<<< HEAD
 
 @section('content')
 <div class="site-section">
@@ -30,6 +31,11 @@
         </div>
         <div class="row">
           <div class="col-md-6 mb-5 mb-md-0">
+=======
+@section('content')
+  <div class="row">
+          {{-- <div class="col-md-6 mb-5 mb-md-0">
+>>>>>>> 26bf0b4241c4c74362c3cb213169bdf2a739f630
             <h2 class="h3 mb-3 text-black">Billing Details</h2>
             <div class="p-3 p-lg-5 border">
               <div class="form-group">
@@ -194,25 +200,8 @@
               </div>
 
             </div>
-          </div>
+          </div> --}}
           <div class="col-md-6">
-
-            <div class="row mb-5">
-              <div class="col-md-12">
-                <h2 class="h3 mb-3 text-black">Coupon Code</h2>
-                <div class="p-3 p-lg-5 border">
-                  
-                  <label for="c_code" class="text-black mb-3">Enter your coupon code if you have one</label>
-                  <div class="input-group w-75">
-                    <input type="text" class="form-control" id="c_code" placeholder="Coupon Code" aria-label="Coupon Code" aria-describedby="button-addon2">
-                    <div class="input-group-append">
-                      <button class="btn btn-primary btn-sm" type="button" id="button-addon2">Apply</button>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-            </div>
             
             <div class="row mb-5">
               <div class="col-md-12">
@@ -284,6 +273,9 @@
           </div>
         </div>
         <!-- </form> -->
+<<<<<<< HEAD
       </div>
     </div>
+=======
+>>>>>>> 26bf0b4241c4c74362c3cb213169bdf2a739f630
 @endsection
