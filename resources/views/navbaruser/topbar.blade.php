@@ -2,7 +2,7 @@
 <div class="header" id="home1">
 		<div class="container">
 			<div class="w3l_login">
-				<a href="#" data-toggle="modal" data-target="#myModal88"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
+				<a href="/login "><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
 			</div>
 			<div class="w3l_logo">
 				<h1><a href="/">Electronic Store<span>Your stores. Your place.</span></a></h1>
@@ -18,10 +18,10 @@
 				</div>
 			</div>
 			<div class="cart cart box_1"> 
-				<form action="#" method="post" class="last"> 
-					<input type="hidden" name="cmd" value="_cart" />
-					<input type="hidden" name="display" value="1" />
-					<button class="w3view-cart" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
+				<form action="{{ route('checkout') }}" method="get"> 
+					{{-- <input type="hidden" name="cmd" value="_cart" />
+					<input type="hidden" name="display" value="1" /> --}}
+					<button class="w3view-cart" type="submit" name="submit"><i class="fa fa-cart-arrow-down"></i></button>
 				</form>   
 			</div>  
 		</div>

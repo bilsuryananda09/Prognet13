@@ -28,15 +28,11 @@
 			<div class="col-md-4 single-left">
 				<div class="flexslider">
 					<ul class="slides">
-						<li data-thumb="{{ URL::asset('/ElectronicStore/images/a.jpg')}}">
-							<div class="thumb-image"> <img src="{{ URL::asset('/ElectronicStore/images/a.jpg')}}" data-imagezoom="true" class="img-responsive" alt=""> </div>
-						</li>
-						<li data-thumb="{{ URL::asset('/ElectronicStore/images/b.jpg')}}">
-							 <div class="thumb-image"> <img src="{{ URL::asset('/ElectronicStore/images/b.jpg')}}" data-imagezoom="true" class="img-responsive" alt=""> </div>
-						</li>
-						<li data-thumb="{{ URL::asset('/ElectronicStore/images/c.jpg')}}">
-						   <div class="thumb-image"> <img src="{{ URL::asset('/ElectronicStore/images/c.jpg')}}" data-imagezoom="true" class="img-responsive" alt=""> </div>
-						</li> 
+						@foreach($image as $img)
+										<li data-thumb="{{ URL::asset($img->image_name)}}">
+											<div class="thumb-image"> <img src="{{ URL::asset($img->image_name)}}" data-imagezoom="true" class="img-responsive" alt=""> </div>
+										</li>
+						@endforeach
 					</ul>
 				</div>
 				<!-- flexslider -->
@@ -57,7 +53,7 @@
 				<!-- //zooming-effect -->
 			</div>
 			<div class="col-md-8 single-right">
-				<h3>The Best 3GB RAM Mobile Phone</h3>
+				<h3>{{$product->product_name}}</h3>
 				<div class="rating1">
 					<span class="starRating">
 						<input id="rating5" type="radio" name="rating" value="5">
@@ -74,33 +70,19 @@
 				</div>
 				<div class="description">
 					<h5><i>Description</i></h5>
-					<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore 
-						eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
-						Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut 
-						odit aut fugit, sed quia consequuntur magni dolores eos qui 
-						ratione voluptatem sequi nesciunt.</p>
+					<p>{{$product->description}}</p>
 				</div>
-				<div class="color-quality">
-					<div class="color-quality-left">
-						<h5>Color : </h5>
-						<ul>
-							<li><a href="#"><span></span></a></li>
-							<li><a href="#" class="brown"><span></span></a></li>
-							<li><a href="#" class="purple"><span></span></a></li>
-							<li><a href="#" class="gray"><span></span></a></li>
-						</ul>
-					</div>
 					<div class="clearfix"> </div>
 				</div>
 				<div class="simpleCart_shelfItem">
-					<p><span>$460</span> <i class="item_price">$450</i></p>
-					<form action="#" method="post">
-						<input type="hidden" name="cmd" value="_cart">
-						<input type="hidden" name="add" value="1"> 
-						<input type="hidden" name="w3ls_item" value="Smart Phone"> 
-						<input type="hidden" name="amount" value="450.00">   
-						<button type="submit" class="w3ls-cart">Add to cart</button>
-					</form>
+						<i class="item_price">Rp{{number_format($product->price, 0)}}</i></p>
+						<form action="{{route('cart')}}" method="get">
+								{{-- <input type="hidden" name="cmd" value="_cart" />   --}}
+								<input type="hidden" name="products" value="{{$product->id}} " />
+								<input type="hidden" name="w3ls_item" value="{{$product->product_name}}" /> 
+								<input type="hidden" name="amount" value="{{$product->price}}"/>   
+								<button type="submit" class="w3ls-cart">Add to cart</button>
+						</form>
 				</div> 
 			</div>
 			<div class="clearfix"> </div>
@@ -131,7 +113,7 @@
 						<h4>(2) Reviews</h4>
 						<div class="additional_info_sub_grids">
 							<div class="col-xs-2 additional_info_sub_grid_left">
-								<img src="images/t1.png" alt=" " class="img-responsive" />
+								<img src="/ElectronicStore/images/t1.png" alt=" " class="img-responsive" />
 							</div>
 							<div class="col-xs-10 additional_info_sub_grid_right">
 								<div class="additional_info_sub_grid_rightl">

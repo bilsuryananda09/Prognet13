@@ -22,6 +22,13 @@
 @endsection
 
 @section('content')
+
+    @if(session()->get('success'))
+      <div class="alert alert-success">
+          {{ session()->get('success') }}  
+      </div><br />
+    @endif
+
     <!-- mobiles -->
 	<div class="mobiles">
             <div class="container">
@@ -142,17 +149,19 @@
                                                 <div class="w3_hs_bottom w3_hs_bottom_sub1">
                                                     <ul>
                                                         <li>
-                                                            <a href="#" data-toggle="modal" data-target="#myModal8"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+                                                            <form action="{{route('productdetail', $products->id)}}" method="GET">
+                                                                <button type="submit"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></button>
+                                                            </form>
                                                         </li>
                                                     </ul>
                                                 </div>
                                             </div>
-                                            <h5><a href="/productdetail">{{$products->product_name}}</a></h5> 
+                                            <h5><a href="{{route('productdetail', $products->id )}}">{{$products->product_name}}</a></h5> 
                                             <div class="simpleCart_shelfItem">
                                                 <i class="item_price">Rp{{number_format($products->price, 0)}}</i></p>
-                                                <form action="#" method="post">
-                                                    <input type="hidden" name="cmd" value="_cart" />
-                                                    <input type="hidden" name="add" value="1" /> 
+                                                <form action="{{route('cart')}}" method="get">
+                                                    {{-- <input type="hidden" name="cmd" value="_cart" />   --}}
+                                                    <input type="hidden" name="products" value="{{$products->id}} " />
                                                     <input type="hidden" name="w3ls_item" value="{{$products->product_name}}" /> 
                                                     <input type="hidden" name="amount" value="{{$products->price}}"/>   
                                                     <button type="submit" class="w3ls-cart">Add to cart</button>

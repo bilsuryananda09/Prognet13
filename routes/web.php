@@ -21,8 +21,11 @@ Auth::routes(['verify' => true]);
 Route::get('/', 'UserController@index')->name('index');
 Route::get('/about', 'UserController@about')->name('about');
 Route::get('/product', 'UserController@product')->name('product');
-Route::get('/productdetail', 'UserController@productdetail')->name('productdetail');
-Route::get('/checkout', 'UserController@checkout')->name('checkout');
+
+Route::get('/product/{id}', 'UserController@productdetail')->name('productdetail');
+
+Route::get('/checkout', 'CartController@checkout')->name('checkout');
+Route::get('/cart', 'CartController@cart')->name('cart');
 Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
 
 Route::get('/login/admin', 'Auth\LoginController@showAdminLoginForm');
@@ -43,7 +46,6 @@ Route::group(['prefix' => 'admin', 'guard' => 'admin'], function () {
     Route::resource('/productimages', 'ProductImageController');
     Route::resource('/discount', 'DiscountController');
 });
-
 
 // Route::get('email/verify', 'Auth\VerificationController@show')->name('verification.notice');
 // Route::get('email/verify/{id}', 'Auth\VerificationController@verify')->name('verification.verify');

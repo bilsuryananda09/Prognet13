@@ -20,18 +20,17 @@ class UserController extends Controller
         return view('user.product', compact('image', 'product'));
     }
 
-    public function productdetail()
+    public function productdetail($id)
     {
-        return view('user.productdetail');
+        $product = Product::find($id);
+        $detail = Product::all();
+        $image = ProductImages::where('product_id',$id)->get();
+
+        return view('user.productdetail', compact('product', 'image', 'detail'));
     }
 
     public function about()
     {
         return view('user.about');
-    }
-
-    public function checkout()
-    {
-        return view('user.checkout');
     }
 }
